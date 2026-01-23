@@ -1,5 +1,6 @@
 package com.glowuptrainer.controller;
 
+import com.glowuptrainer.model.PlanResponse;
 import com.glowuptrainer.model.UserProfile;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,8 +9,11 @@ import org.springframework.web.bind.annotation.*;
 public class PlanController {
 
     @PostMapping("/generate")
-    public String generatePlan(@RequestBody UserProfile profile) {
-        return "Plan generated for " + profile.name +
-                " with goal: " + profile.goal;
+    public PlanResponse generatePlan(@RequestBody UserProfile profile) {
+        return new PlanResponse(
+                "Plan generated",
+                profile.name,
+                profile.goal
+        );
     }
 }
