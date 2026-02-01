@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>GlowUp Trainer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="brand">
+        <div class="logo">
+            <div class="logo-badge"></div>
+            <div>
+                <h1>GlowUp Trainer</h1>
+                <div class="sub">Generate a clean 7-day plan based on your stats + goal.</div>
+            </div>
+        </div>
+
+        <span class="pill">ft/in + lbs ✅</span>
+    </div>
+
+    <div class="grid">
+        <!-- Left: Form -->
+        <div class="card">
+            <h2>Your info</h2>
+            <p>Fill this out and hit generate. Keep it simple.</p>
+
+            <form class="form" method="post" th:action="@{/plan}">
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Moody" required>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>Height (ft'in)</label>
+                        <input type="text" name="height" placeholder="5'11" required>
+                    </div>
+
+                    <div>
+                        <label>Weight (lbs)</label>
+                        <input type="number" name="weightLbs" placeholder="180" min="50" max="600" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Goal</label>
+                    <input type="text" name="goal" placeholder="Lose fat + build muscle" required>
+                </div>
+
+                <div>
+                    <label>Workouts per week</label>
+                    <input type="number" name="workoutsPerWeek" placeholder="4" min="0" max="14" required>
+                </div>
+
+                <button class="btn" type="submit">Generate My Plan</button>
+            </form>
+        </div>
+
+        <!-- Right: Tips / preview -->
+        <div class="card">
+            <h2>Quick tips</h2>
+            <p>This app will generate:</p>
+
+            <ul style="margin:0; padding-left:18px; color: var(--muted); line-height:1.7;">
+                <li>Calories + macros</li>
+                <li>7-day workout plan</li>
+                <li>7-day meal plan</li>
+                <li>Grocery list</li>
+            </ul>
+
+            <hr class="hr">
+
+            <div class="pill">Example input</div>
+            <div style="height:10px;"></div>
+
+            <div class="kv">
+                <div class="item">
+                    <div class="k">Height</div>
+                    <div class="v">5'11</div>
+                </div>
+                <div class="item">
+                    <div class="k">Weight</div>
+                    <div class="v">180 lbs</div>
+                </div>
+                <div class="item">
+                    <div class="k">Goal</div>
+                    <div class="v">Cut + tone</div>
+                </div>
+                <div class="item">
+                    <div class="k">Workouts/week</div>
+                    <div class="v">4</div>
+                </div>
+            </div>
+
+            <div class="footer-note">No medical advice. General info only.</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

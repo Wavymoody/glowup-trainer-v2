@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Plan - GlowUp Trainer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+<div class="container">
+
+    <div class="brand">
+        <div class="logo">
+            <div class="logo-badge"></div>
+            <div>
+                <h1>Your Plan</h1>
+                <div class="sub">Generated for <b th:text="${name}">You</b> 👋</div>
+            </div>
+        </div>
+
+        <a class="pill" href="/">← Back</a>
+    </div>
+
+    <div class="grid">
+        <!-- Left card: user inputs -->
+        <div class="card">
+            <h2>Your stats</h2>
+            <p>These are the inputs you gave. Change anything and regenerate.</p>
+
+            <div class="kv">
+                <div class="item">
+                    <div class="k">Height</div>
+                    <div class="v" th:text="${height}">—</div>
+                </div>
+
+                <div class="item">
+                    <div class="k">Weight</div>
+                    <div class="v"><span th:text="${weightLbs}">0</span> lbs</div>
+                </div>
+
+                <div class="item">
+                    <div class="k">Goal</div>
+                    <div class="v" th:text="${goal}">—</div>
+                </div>
+
+                <div class="item">
+                    <div class="k">Workouts / week</div>
+                    <div class="v" th:text="${workoutsPerWeek}">0</div>
+                </div>
+            </div>
+
+            <div class="footer-note">General info only. Not medical advice.</div>
+        </div>
+
+        <!-- Right card: AI plan -->
+        <div class="card">
+            <h2>Generated plan</h2>
+            <p>Copy/paste friendly output. Scroll inside the box.</p>
+
+            <pre class="plan-box" th:text="${planText}">Generating…</pre>
+
+            <div class="footer-note">
+                If you want, next we can split this into sections (Workout / Meals / Grocery) so it looks even cleaner.
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
